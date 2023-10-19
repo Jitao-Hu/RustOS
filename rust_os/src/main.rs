@@ -1,11 +1,24 @@
-fn main() {
-    let x = 4;
-    println!("Hello, world!");
-    println!("x is: {}", x);
-    let x = 2 * x;
-    println!("x is: {}", x);
-    const SECONDS_IN_MINUTE: u32 = 60;
-    println!("x is: {}", SECONDS_IN_MINUTE);
-    let boolean: bool = true;
-    println!("bool is {}", boolean);
+// main.rs
+
+// A freestanding executable - no link to std library
+#![no_std]
+// Tell Rust compiler that we are not using normal entry point chain
+#![no_main]
+
+
+use core::panic::PanicInfo;
+
+#[no_mangle] // Disable name mangling for _start function
+// Tell compiler to use C calling convention 
+// instead of default Rust calling convention
+pub extern "C" fn _start() -> !{
+    // the entry point for linker, named '_start' by default
+    loop {}
+}
+
+// function used to handle panic
+#[panic_handler]
+fn panic(_info: &PanicInfo) -> !{
+    // loop for now
+    loop {}
 }
