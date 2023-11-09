@@ -1,1 +1,2 @@
-*Makefile linguist-detectable=false
+./rust_os/target linguist-detectable=false
+./rust_os/.cargo linguist-detectable=false
