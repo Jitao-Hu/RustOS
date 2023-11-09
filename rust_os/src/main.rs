@@ -1,18 +1,16 @@
 // main.rs
 
-// A freestanding executable - no link to std library
-#![no_std]
-// Tell Rust compiler that we are not using normal entry point chain
-#![no_main]
+
+#![no_std] // A freestanding executable - no link to std library
+#![no_main] // Tell Rust compiler that we are not using normal entry point chain
 
 
 use core::panic::PanicInfo;
 
 #[no_mangle] // Disable name mangling for _start function
-// Tell compiler to use C calling convention 
-// instead of default Rust calling convention
+// Tell compiler to use C calling convention instead of default Rust calling convention
 pub extern "C" fn _start() -> !{
-    // the entry point for linker, named '_start' by default
+    //this function is the entry point that linker looks for, named '_start' by default
     loop {}
 }
 
