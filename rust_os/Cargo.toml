@@ -5,4 +5,16 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+# Disable the generation of unwinding symbol information
+# since stack unwinding depends on some OS-specific libraries
+# stack unwinding: https://www.bogotobogo.com/cplusplus/stackunwinding.php
+
+# the profile used for `cargo build`
+[profile.dev]
+panic = "abort"
+
+# the profile used for `cargo build --release`
+[profile.release]
+panic = "abort"
+
 [dependencies]
